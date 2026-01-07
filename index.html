@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>LUXURY BY DARLIN — Catálogo</title>
+
+<style>
+:root{
+  --bg:#F8F5F0;
+  --panel:#EFE7DA;
+  --card:#FFFFFF;
+  --card2:#F3EEE7;
+  --text:#3A3530;
+  --muted:#8E857A;
+  --gold:#D9B87A;
+  --gold2:#EED9A6;
+  --shadow:0 10px 24px rgba(0,0,0,.08);
+  --r:18px;
+  --r2:24px;
+  --focus:0 0 0 4px rgba(217,184,122,.25);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+.hidden{display:none!important}
+
+/* TOPBAR */
+.topbar{
+  position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:14px 16px;
+  background:#FFFFFFE6;
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #E6DCCB;
+}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{
+  width:44px;height:44px;border-radius:14px;
+  display:grid;place-items:center;
+  background:linear-gradient(180deg,var(--gold2),var(--gold));
+  color:#fff;font-weight:900;
+  box-shadow:var(--shadow);
+}
+.brand-name{font-size:12px;font-weight:900;letter-spacing:.16em}
+.brand-sub{font-size:12px;color:var(--muted)}
+
+.search-wrap{flex:1;max-width:560px}
+.search-wrap input{
+  width:100%;padding:12px;
+  border-radius:14px;
+  border:1px solid #E1D7C7;
+  background:#fff;color:var(--text);
+}
+.search-wrap input:focus{outline:none;box-shadow:var(--focus)}
+
+.btn{
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid #E1D7C7;
+  background:#fff;
+  font-weight:800;
+  cursor:pointer;
+}
+.btn.primary{
+  background:linear-gradient(180deg,var(--gold2),var(--gold));
+  color:#fff;border:none;
+}
+
+.cart-btn{
+  display:flex;gap:10px;align-items:center;
+  padding:10px 12px;border-radius:14px;
+  border:1px solid #E1D7C7;background:#fff;
+}
+.cart-count{
+  min-width:22px;height:22px;
+  border-radius:999px;
+  display:grid;place-items:center;
+  background:var(--gold2);
+  font-size:12px;font-weight:900;
+}
+
+/* LAYOUT */
+.layout{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:18px;
+  max-width:1320px;
+  margin:0 auto;
+  padding:16px;
+}
+@media(max-width:980px){.layout{grid-template-columns:1fr}}
+
+/* FILTERS */
+.filters{
+  background:var(--panel);
+  border-radius:var(--r2);
+  padding:14px;
+  box-shadow:var(--shadow);
+}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.field span{font-size:12px;color:var(--muted)}
+.field select,.field input{
+  padding:11px;border-radius:14px;
+  border:1px solid #E1D7C7;
+  background:#fff;
+}
+.field select:focus,.field input:focus{outline:none;box-shadow:var(--focus)}
+
+.note{
+  margin-top:12px;
+  padding:12px;
+  border-radius:16px;
+  background:#fff;
+  border:1px dashed #E1D7C7;
+}
+
+/* CONTENT */
+.brands{display:flex;flex-direction:column;gap:14px}
+.brand-section{
+  background:var(--card);
+  border-radius:var(--r2);
+  box-shadow:var(--shadow);
+}
+.brand-header{
+  padding:12px 14px;
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid #EEE6D8;
+}
+.brand-title{font-weight:900}
+.brand-pill{
+  font-size:11px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:var(--gold2);
+}
+.brand-body{padding:12px}
+
+.item{
+  display:flex;gap:14px;
+  padding:12px;
+  border-radius:var(--r);
+  border:1px solid #EEE6D8;
+  margin-bottom:10px;
+}
+.item-media{
+  width:92px;height:92px;
+  border-radius:16px;
+  background:#F6F2EB;
+  display:grid;place-items:center;
+}
+.item-media img{width:100%;height:100%;object-fit:contain}
+.media-ph{font-size:11px;color:var(--muted);text-align:center}
+
+.item-name{font-weight:900;margin-bottom:6px}
+.item-meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12px}
+.chip{
+  padding:6px 10px;
+  border-radius:999px;
+  background:#F3EEE7;
+}
+.chip.gold{background:var(--gold2);font-weight:800}
+
+.item-actions{display:flex;flex-direction:column;gap:8px}
+.add-btn{
+  padding:10px 12px;
+  border-radius:14px;
+  background:var(--gold);
+  color:#fff;border:none;
+  font-weight:900;cursor:pointer;
+}
+
+.footer{
+  max-width:1320px;
+  margin:24px auto;
+  padding:0 16px;
+  font-size:12px;
+  color:var(--muted);
+  display:flex;justify-content:space-between;
+}
+
+/* MOBILE */
+@media(max-width:560px){
+  .item{flex-direction:column}
+  .item-media{width:100%;height:170px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">L</div>
+    <div>
+      <div class="brand-name">LUXURY BY DARLIN</div>
+      <div class="brand-sub">Catálogo • WhatsApp</div>
+    </div>
+  </div>
+  <div class="search-wrap">
+    <input placeholder="Buscar perfume o marca…">
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="filters">
+    <div class="field"><span>Marca</span><select></select></div>
+    <div class="field"><span>Género</span><select></select></div>
+    <button class="btn">Limpiar filtros</button>
+    <div class="note">
+      <b>Pedidos</b><br>
+      Cotiza y ordena por WhatsApp.
+    </div>
+  </aside>
+
+  <section class="brands">
+    <!-- Productos renderizados por JS -->
+  </section>
+</main>
+
+<footer class="footer">
+  <div>© Luxury By Darlin</div>
+  <div>Boutique online</div>
+</footer>
+
+</body>
+</html>
