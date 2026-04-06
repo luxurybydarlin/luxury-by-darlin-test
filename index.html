@@ -1,60 +1,146 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>LUXURY BY DARLIN</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luxury by Darlin</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#F8F5F0;color:#2B2622}
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border-bottom:1px solid #ddd}
-.logo img{height:40px}
-.container{padding:16px;max-width:1100px;margin:auto}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-.card{background:#fff;border-radius:16px;padding:12px;border:1px solid #eee}
-.card img{width:100%;height:200px;object-fit:contain;cursor:pointer}
-.name{font-weight:bold;margin:8px 0}
-.btn{display:block;text-align:center;padding:10px;border-radius:10px;margin-top:8px;text-decoration:none;font-weight:bold}
-.whatsapp{background:#D9B87A;color:#000}
+body{
+  margin:0;
+  font-family:Arial;
+  background:#F8F5F0;
+  color:#2B2622;
+}
 
-/* modal imagen */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center}
-.modal img{max-width:90%;max-height:90%}
+.topbar{
+  padding:15px;
+  text-align:center;
+  background:#fff;
+  border-bottom:1px solid #eee;
+}
+
+.logo img{
+  height:50px;
+}
+
+.search{
+  padding:10px;
+  width:90%;
+  margin:10px auto;
+  display:block;
+  border-radius:10px;
+  border:1px solid #ddd;
+}
+
+.container{
+  padding:16px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:12px;
+  border:1px solid #eee;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:contain;
+  cursor:pointer;
+}
+
+.name{
+  font-weight:bold;
+  margin-top:8px;
+}
+
+.brand{
+  font-size:13px;
+  color:#777;
+}
+
+.btn{
+  display:block;
+  text-align:center;
+  padding:10px;
+  border-radius:10px;
+  margin-top:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.whatsapp{
+  background:#D9B87A;
+  color:#000;
+}
+
+/* modal */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+}
+
+.modal img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:12px;
+}
 
 /* mobile */
 @media(max-width:600px){
-.card img{height:240px}
+  .card img{
+    height:260px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header class="topbar">
-<div class="logo">
-<img src="https://i.imgur.com/8Km9tLL.png">
+<div class="topbar">
+  <div class="logo">
+    <img src="https://i.imgur.com/8Km9tLL.png">
+  </div>
 </div>
-</header>
+
+<input type="text" id="search" class="search" placeholder="Buscar perfume...">
 
 <div class="container">
-<div id="products" class="grid"></div>
+  <div id="products" class="grid"></div>
 </div>
 
 <div id="modal" class="modal">
-<img id="modalImg">
+  <img id="modalImg">
 </div>
 
 <script>
 const WHATSAPP="18294755065";
-
 let products=[];
 
 async function load(){
   const res=await fetch("catalogo.txt");
   const text=await res.text();
-  const lines=text.split("\n");
-
-  products=lines.map(l=>{
+  products=text.split("\n").map(l=>{
     const p=l.split("|").map(x=>x.trim());
     return {
       brand:p[0],
@@ -65,35 +151,42 @@ async function load(){
       img:p[5]
     }
   });
-
-  render();
+  render(products);
 }
 
-function render(){
+function render(list){
   const wrap=document.getElementById("products");
   wrap.innerHTML="";
 
-  products.forEach(p=>{
-    const card=document.createElement("div");
-    card.className="card";
-
+  list.forEach(p=>{
     const msg=`Hola, quiero este perfume: ${p.name}`;
 
-    card.innerHTML=`
+    const div=document.createElement("div");
+    div.className="card";
+    div.innerHTML=`
       <img src="${p.img||''}">
       <div class="name">${p.name}</div>
-      <div>${p.brand}</div>
+      <div class="brand">${p.brand}</div>
       <div>${p.size}</div>
       <a class="btn whatsapp" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}" target="_blank">
         Lo quiero
       </a>
     `;
-
-    wrap.appendChild(card);
+    wrap.appendChild(div);
   });
 }
 
-/* modal */
+/* buscar */
+document.getElementById("search").addEventListener("input",e=>{
+  const val=e.target.value.toLowerCase();
+  const filtered=products.filter(p=>
+    (p.name||"").toLowerCase().includes(val) ||
+    (p.brand||"").toLowerCase().includes(val)
+  );
+  render(filtered);
+});
+
+/* modal imagen */
 document.addEventListener("click",e=>{
   if(e.target.tagName==="IMG"){
     document.getElementById("modal").style.display="flex";
