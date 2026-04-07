@@ -1320,7 +1320,8 @@ function buildWhatsAppMessage(){
   const name = norm(el("customerName").value);
   const zone = norm(el("customerZone").value);
   const note = norm(el("customerNote").value);
-
+const seller = norm(el("sellerSelect").value);
+  
   const lines = [];
   lines.push("👋 Hola, buenas.");
   lines.push("✨ Me gustaría cotizar y hacer un pedido del siguiente listado:");
@@ -1330,12 +1331,18 @@ function buildWhatsAppMessage(){
   if(name) lines.push(`👤 Nombre: ${name}`);
   if(zone) lines.push(`📍 Zona/Dirección: ${zone}`);
   if(note) lines.push(`📝 Nota: ${note}`);
+  if(seller) lines.push(`🧑‍💼 Vendedora: ${seller}`);
   lines.push("");
   lines.push("✅ Quedo atento/a a disponibilidad y precio. ¡Muchas gracias! 🙏");
 
   return lines.join("\n");
 }
 function sendWhatsApp(){
+  const seller = el("sellerSelect").value;
+if(!seller){
+  alert("Debes seleccionar una vendedora antes de enviar el pedido.");
+  return;
+}
   if(Object.keys(cart).length===0){
     alert("Tu carrito está vacío.");
     return;
