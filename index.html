@@ -1,50 +1,43 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>VELORA — Boutique de Perfumes</title>
-<meta name="description" content="VELORA Boutique de Perfumes. Catálogo elegante con carrito y pedidos por WhatsApp." />
-<meta name="theme-color" content="#ff7fca" />
+<meta name="description" content="VELORA Boutique de Perfumes. Catálogo elegante con carrito y pedidos por WhatsApp.">
+<meta name="theme-color" content="#ff7fca">
+<link rel="icon" href="logo-velora.jpeg">
 
 <style>
 :root{
   --ivory:#fff8fc;
-  --ivory2:#fff0f8;
   --rose:#ff4fa7;
   --rose2:#ff8fc8;
   --rose3:#ffc6e2;
   --lila:#b784ff;
-  --lila2:#ead8ff;
   --gold:#f2c66d;
   --gold2:#ffe6a8;
   --ink:#4a1732;
   --muted:#875b72;
-  --white:#fff;
-  --line:rgba(255,79,167,.22);
-  --glass:rgba(255,255,255,.72);
+  --line:rgba(255,79,167,.18);
   --shadow:0 24px 70px rgba(219,67,145,.18);
   --shadow2:0 12px 30px rgba(148,75,155,.16);
-  --r:28px;
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
-
 body{
   margin:0;
   min-height:100vh;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   color:var(--ink);
   background:
-    radial-gradient(circle at 10% 3%, rgba(255,79,167,.24), transparent 32%),
-    radial-gradient(circle at 92% 8%, rgba(183,132,255,.22), transparent 30%),
-    radial-gradient(circle at 50% 42%, rgba(242,198,109,.16), transparent 36%),
-    linear-gradient(180deg,#fff7fb 0%, #ffeaf5 44%, #fff9fc 100%);
+    radial-gradient(circle at 10% 3%, rgba(255,79,167,.22), transparent 32%),
+    radial-gradient(circle at 92% 8%, rgba(183,132,255,.20), transparent 30%),
+    radial-gradient(circle at 50% 42%, rgba(242,198,109,.14), transparent 36%),
+    linear-gradient(180deg,#fff7fb 0%,#ffeaf5 44%,#fff9fc 100%);
   overflow-x:hidden;
 }
-
 body:before{
   content:"";
   position:fixed;
@@ -53,10 +46,9 @@ body:before{
   background-image:radial-gradient(circle,rgba(255,255,255,.9) 0 1px,transparent 2px);
   background-size:38px 38px;
   mask-image:linear-gradient(to bottom,black,transparent 72%);
-  opacity:.52;
+  opacity:.5;
   z-index:-1;
 }
-
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 .hidden{display:none!important}
@@ -68,7 +60,6 @@ button{cursor:pointer}
   z-index:-1;
   overflow:hidden;
 }
-
 .sparkle i{
   position:absolute;
   width:10px;
@@ -78,7 +69,6 @@ button{cursor:pointer}
   animation:float 9s infinite ease-in-out;
   opacity:.75;
 }
-
 @keyframes float{
   0%,100%{transform:translateY(0) scale(.8) rotate(0)}
   50%{transform:translateY(-42px) scale(1.25) rotate(30deg)}
@@ -89,11 +79,10 @@ button{cursor:pointer}
   top:0;
   z-index:50;
   padding:10px 14px;
-  background:rgba(255,247,251,.80);
+  background:rgba(255,247,251,.82);
   backdrop-filter:blur(18px);
   border-bottom:1px solid rgba(255,79,167,.13);
 }
-
 .appbar-inner{
   max-width:1280px;
   margin:auto;
@@ -102,7 +91,6 @@ button{cursor:pointer}
   align-items:center;
   justify-content:space-between;
 }
-
 .brand-mini{
   display:flex;
   align-items:center;
@@ -110,65 +98,18 @@ button{cursor:pointer}
   min-width:0;
   user-select:none;
 }
-
-.brand-mark{
-  width:58px;
-  height:58px;
-  border-radius:20px;
-  display:grid;
-  place-items:center;
-  overflow:hidden;
-  background:linear-gradient(145deg,#ffe5f2,#ff9ed0 55%,#d9b8ff);
-  box-shadow:0 12px 28px rgba(255,79,167,.20);
-  border:1px solid rgba(255,255,255,.95);
+.brand-logo-small{
+  width:170px;
+  height:64px;
+  object-fit:contain;
+  border-radius:16px;
+  filter:drop-shadow(0 8px 18px rgba(255,79,167,.16));
 }
-
-.logo-svg{
-  width:100%;
-  height:100%;
-  display:block;
-}
-
-.brand-word,
-.hero h1,
-.panel-title,
-.content-head h2,
-.drawer-head h3{
-  font-family: Cambria, Georgia, "Times New Roman", serif;
-}
-
-.brand-word{
-  font-weight:900;
-  font-size:27px;
-  letter-spacing:.08em;
-  line-height:1;
-  text-transform:uppercase;
-  background:linear-gradient(180deg,#fff4fb 0%,#ffb4d8 25%,#ff5aae 52%,#b83885 78%,#f2c66d 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  -webkit-text-stroke:.55px rgba(139,39,98,.38);
-  text-shadow:
-    0 1px 0 rgba(255,255,255,.95),
-    0 3px 0 rgba(255,188,219,.28),
-    0 10px 22px rgba(255,79,167,.18);
-}
-
-.brand-sub{
-  font-size:11px;
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  color:#9a5575;
-  font-weight:900;
-  white-space:nowrap;
-}
-
 .quick-actions{
   display:flex;
   align-items:center;
   gap:10px;
 }
-
 .icon-btn{
   width:46px;
   height:46px;
@@ -177,13 +118,12 @@ button{cursor:pointer}
   font-size:18px;
   position:relative;
   border:1px solid rgba(255,79,167,.18);
-  background:rgba(255,255,255,.80);
+  background:rgba(255,255,255,.82);
   border-radius:999px;
   color:var(--ink);
   box-shadow:0 8px 24px rgba(255,79,167,.12);
   font-weight:950;
 }
-
 .badge{
   position:absolute;
   right:-5px;
@@ -205,7 +145,6 @@ button{cursor:pointer}
   margin:18px auto 0;
   padding:0 14px;
 }
-
 .hero-card{
   position:relative;
   overflow:hidden;
@@ -215,7 +154,6 @@ button{cursor:pointer}
   border:1px solid rgba(255,255,255,.92);
   box-shadow:var(--shadow);
 }
-
 .hero-card:before{
   content:"";
   position:absolute;
@@ -225,69 +163,37 @@ button{cursor:pointer}
   background:radial-gradient(circle,rgba(255,79,167,.24),transparent 62%);
   border-radius:50%;
 }
-
 .hero-grid{
   position:relative;
   display:grid;
-  grid-template-columns:260px 1fr;
-  gap:22px;
+  grid-template-columns:430px 1fr;
+  gap:28px;
   align-items:center;
+}
+.hero-logo-real{
+  width:100%;
+  max-width:420px;
+  aspect-ratio:1/1;
+  object-fit:contain;
+  border-radius:36px;
+  filter:drop-shadow(0 22px 45px rgba(255,79,167,.18));
+}
+.hero-copy{
   text-align:left;
 }
-
-.logo-hero{
-  width:min(230px,70vw);
-  height:min(230px,70vw);
-  margin:auto;
-  border-radius:46px;
-  display:grid;
-  place-items:center;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(255,255,255,.95), transparent 15%),
-    radial-gradient(circle at 76% 20%, rgba(255,255,255,.5), transparent 20%),
-    linear-gradient(145deg,#ffd6eb,#ff7fca 46%,#c99bff 78%,#ffe3a0);
-  border:1px solid rgba(255,255,255,.94);
-  box-shadow:0 22px 60px rgba(255,79,167,.20);
-}
-
-.logo-hero .logo-svg{
-  width:100%;
-  height:100%;
-}
-
-.hero h1{
-  margin:0;
-  font-size:clamp(48px,8vw,106px);
-  line-height:.9;
-  letter-spacing:.052em;
-  text-transform:uppercase;
-  background:linear-gradient(180deg,#fff5fb 0%,#ffbddc 24%,#ff5aae 50%,#bd3f8d 78%,#f3c76e 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  -webkit-text-stroke:1px rgba(133,41,98,.34);
-  text-shadow:
-    0 2px 0 rgba(255,255,255,.96),
-    0 5px 0 rgba(255,193,224,.25),
-    0 18px 32px rgba(255,79,167,.22);
-}
-
-.hero p{
-  font-size:clamp(15px,2vw,19px);
+.hero-copy p{
+  font-size:clamp(16px,2vw,20px);
   color:#7c3c5b;
-  max-width:760px;
-  line-height:1.55;
-  margin:12px 0 18px;
+  max-width:780px;
+  line-height:1.62;
+  margin:0 0 18px;
+  font-weight:750;
 }
-
 .hero-chips{
   display:flex;
   flex-wrap:wrap;
-  justify-content:flex-start;
   gap:10px;
 }
-
 .chip{
   border:1px solid rgba(255,79,167,.18);
   background:rgba(255,255,255,.72);
@@ -306,7 +212,6 @@ button{cursor:pointer}
   top:78px;
   z-index:40;
 }
-
 .search-card{
   display:block;
   padding:10px;
@@ -316,7 +221,6 @@ button{cursor:pointer}
   backdrop-filter:blur(16px);
   box-shadow:0 18px 44px rgba(255,79,167,.12);
 }
-
 .search-card input{
   width:100%;
   border:0;
@@ -327,7 +231,6 @@ button{cursor:pointer}
   color:var(--ink);
   font-weight:850;
 }
-
 .search-card input::placeholder{color:#a37087}
 
 .main{
@@ -338,7 +241,6 @@ button{cursor:pointer}
   grid-template-columns:285px 1fr;
   gap:18px;
 }
-
 .filters{
   align-self:start;
   position:sticky;
@@ -350,28 +252,24 @@ button{cursor:pointer}
   box-shadow:var(--shadow2);
   backdrop-filter:blur(14px);
 }
-
 .panel-title{
+  font-family:Cambria,Georgia,"Times New Roman",serif;
   font-size:25px;
   font-weight:900;
   color:#b02c76;
   margin:0 0 3px;
-  letter-spacing:.02em;
 }
-
 .panel-sub{
   margin:0 0 12px;
   color:#9a5575;
   font-size:12px;
   font-weight:850;
 }
-
 .field{
   display:grid;
   gap:7px;
   margin:11px 0;
 }
-
 .field label{
   font-size:12px;
   text-transform:uppercase;
@@ -379,7 +277,6 @@ button{cursor:pointer}
   color:#92506e;
   font-weight:950;
 }
-
 .field select,.field input,.field textarea{
   border:1px solid rgba(255,79,167,.18);
   background:rgba(255,255,255,.84);
@@ -389,19 +286,16 @@ button{cursor:pointer}
   outline:0;
   font-weight:850;
 }
-
 .field textarea{
   min-height:160px;
   resize:vertical;
 }
-
 .segment{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
   margin:12px 0;
 }
-
 .seg{
   padding:10px 12px;
   border-radius:999px;
@@ -410,7 +304,6 @@ button{cursor:pointer}
   font-weight:950;
   color:#853257;
 }
-
 .seg.active{
   background:linear-gradient(135deg,#ff4fa7,#b784ff);
   color:#fff;
@@ -425,19 +318,10 @@ button{cursor:pointer}
   gap:10px;
   margin:4px 0 12px;
 }
-
-.content-head h2{
-  margin:0;
-  font-size:clamp(28px,4vw,46px);
-  color:#9b286a;
-  letter-spacing:.02em;
-}
-
 .small{
   color:#8a5d70;
-  font-weight:850;
+  font-weight:900;
 }
-
 .tabs{
   display:flex;
   gap:10px;
@@ -445,9 +329,7 @@ button{cursor:pointer}
   padding:4px 0 14px;
   scrollbar-width:none;
 }
-
 .tabs::-webkit-scrollbar{display:none}
-
 .tab{
   flex:0 0 auto;
   border:1px solid rgba(255,79,167,.18);
@@ -458,7 +340,6 @@ button{cursor:pointer}
   font-weight:950;
   box-shadow:0 8px 18px rgba(255,79,167,.08);
 }
-
 .tab.active{
   background:linear-gradient(135deg,#ff4fa7,#b784ff);
   color:#fff;
@@ -471,7 +352,6 @@ button{cursor:pointer}
   gap:12px;
   margin-bottom:18px;
 }
-
 .mini-card{
   position:relative;
   overflow:hidden;
@@ -482,20 +362,17 @@ button{cursor:pointer}
   border:1px solid rgba(255,255,255,.92);
   box-shadow:var(--shadow2);
 }
-
 .mini-card b{
   display:block;
-  font-family:Cambria, Georgia, "Times New Roman", serif;
+  font-family:Cambria,Georgia,"Times New Roman",serif;
   font-size:19px;
   color:#a92c72;
 }
-
 .mini-card span{
   font-weight:850;
   color:#87536a;
   font-size:13px;
 }
-
 .mini-card small{
   display:block;
   margin-top:7px;
@@ -504,7 +381,6 @@ button{cursor:pointer}
   font-size:12px;
   line-height:1.25;
 }
-
 .mini-card:after{
   content:"✦";
   position:absolute;
@@ -519,7 +395,6 @@ button{cursor:pointer}
   grid-template-columns:repeat(4,minmax(0,1fr));
   gap:16px;
 }
-
 .card{
   position:relative;
   overflow:hidden;
@@ -532,12 +407,10 @@ button{cursor:pointer}
   min-height:100%;
   transition:transform .22s ease,box-shadow .22s ease;
 }
-
 .card:hover{
   transform:translateY(-5px);
   box-shadow:0 26px 60px rgba(255,79,167,.2);
 }
-
 .img-wrap{
   position:relative;
   margin:12px 12px 0;
@@ -548,7 +421,6 @@ button{cursor:pointer}
   display:grid;
   place-items:center;
 }
-
 .img-wrap img{
   width:100%;
   height:100%;
@@ -556,9 +428,7 @@ button{cursor:pointer}
   padding:8px;
   transition:transform .35s ease;
 }
-
 .card:hover img{transform:scale(1.045)}
-
 .ribbon{
   position:absolute;
   left:12px;
@@ -571,7 +441,6 @@ button{cursor:pointer}
   color:#783400;
   box-shadow:0 8px 18px rgba(244,201,112,.2);
 }
-
 .heart{
   position:absolute;
   right:12px;
@@ -584,12 +453,10 @@ button{cursor:pointer}
   box-shadow:0 8px 18px rgba(255,79,167,.14);
   font-size:19px;
 }
-
 .heart.active{
   background:linear-gradient(135deg,#ff4fa7,#b784ff);
   color:white;
 }
-
 .info{
   padding:13px 14px 14px;
   display:flex;
@@ -597,7 +464,6 @@ button{cursor:pointer}
   gap:8px;
   flex:1;
 }
-
 .brand{
   font-size:11px;
   letter-spacing:.2em;
@@ -608,7 +474,6 @@ button{cursor:pointer}
   overflow:hidden;
   text-overflow:ellipsis;
 }
-
 .name{
   font-weight:950;
   font-size:17px;
@@ -616,13 +481,11 @@ button{cursor:pointer}
   min-height:40px;
   color:#4f1734;
 }
-
 .meta{
   display:flex;
   gap:7px;
   flex-wrap:wrap;
 }
-
 .meta span{
   font-size:12px;
   font-weight:950;
@@ -632,7 +495,6 @@ button{cursor:pointer}
   padding:6px 8px;
   color:#803154;
 }
-
 .status{
   display:flex;
   align-items:center;
@@ -641,7 +503,6 @@ button{cursor:pointer}
   font-weight:950;
   color:#0d9c68;
 }
-
 .dot{
   width:9px;
   height:9px;
@@ -649,26 +510,22 @@ button{cursor:pointer}
   background:#16c784;
   box-shadow:0 0 0 4px rgba(22,199,132,.12);
 }
-
 .status.low{color:#a76b00}
 .status.low .dot{background:#ffb51f}
 .status.out{color:#b32626}
 .status.out .dot{background:#ff4b4b}
-
 .price-row{
   display:flex;
   align-items:center;
   justify-content:space-between;
   margin-top:auto;
 }
-
 .price{
-  font-family:Cambria, Georgia, "Times New Roman", serif;
+  font-family:Cambria,Georgia,"Times New Roman",serif;
   font-weight:900;
   font-size:20px;
   color:#b02c76;
 }
-
 .add{
   width:100%;
   border:0;
@@ -679,7 +536,6 @@ button{cursor:pointer}
   background:linear-gradient(135deg,#ff4fa7,#b784ff);
   box-shadow:0 14px 28px rgba(255,79,167,.18);
 }
-
 .add:disabled{
   opacity:.55;
   cursor:not-allowed;
@@ -694,12 +550,10 @@ button{cursor:pointer}
   pointer-events:none;
   transition:.2s;
 }
-
 .drawer-back.open{
   opacity:1;
   pointer-events:auto;
 }
-
 .drawer{
   position:fixed;
   top:0;
@@ -715,9 +569,7 @@ button{cursor:pointer}
   display:flex;
   flex-direction:column;
 }
-
 .drawer.open{transform:translateX(0)}
-
 .drawer-head{
   display:flex;
   justify-content:space-between;
@@ -725,19 +577,17 @@ button{cursor:pointer}
   padding:18px;
   border-bottom:1px solid rgba(255,79,167,.12);
 }
-
 .drawer-head h3{
+  font-family:Cambria,Georgia,"Times New Roman",serif;
   margin:0;
   font-size:28px;
   color:#a72c72;
 }
-
 .cart-items{
   padding:14px;
   overflow:auto;
   flex:1;
 }
-
 .cart-item{
   display:grid;
   grid-template-columns:64px 1fr;
@@ -749,7 +599,6 @@ button{cursor:pointer}
   background:white;
   border:1px solid rgba(255,79,167,.12);
 }
-
 .cart-item img{
   width:64px;
   height:64px;
@@ -757,20 +606,17 @@ button{cursor:pointer}
   object-fit:contain;
   background:#fff3f9;
 }
-
 .cart-item b{
   display:block;
   font-size:13px;
   line-height:1.2;
 }
-
 .cart-item span{
   display:block;
   font-size:12px;
   color:#8a5d70;
   margin-top:4px;
 }
-
 .cart-controls{
   grid-column:1/-1;
   display:flex;
@@ -779,13 +625,11 @@ button{cursor:pointer}
   gap:10px;
   margin-top:8px;
 }
-
 .qty-box{
   display:flex;
   align-items:center;
   gap:8px;
 }
-
 .qty-btn,.remove{
   width:34px;
   height:34px;
@@ -797,7 +641,6 @@ button{cursor:pointer}
   display:grid;
   place-items:center;
 }
-
 .qty-number{
   min-width:34px;
   height:34px;
@@ -809,13 +652,11 @@ button{cursor:pointer}
   font-weight:950;
   color:#812d55;
 }
-
 .drawer-foot{
   padding:16px;
   border-top:1px solid rgba(255,79,167,.12);
   background:rgba(255,255,255,.55);
 }
-
 .total-line{
   display:flex;
   justify-content:space-between;
@@ -829,9 +670,7 @@ button{cursor:pointer}
   margin:0 auto 80px;
   padding:0 14px;
 }
-
 body.admin-on .admin{display:block}
-
 .admin-box{
   border-radius:28px;
   padding:16px;
@@ -839,22 +678,17 @@ body.admin-on .admin{display:block}
   border:1px solid rgba(255,79,167,.16);
   box-shadow:var(--shadow2);
 }
-
 .admin-actions{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
   margin-top:10px;
 }
-
 .admin-actions .add{
   width:auto;
   padding:13px 16px;
 }
-
-#adminText{
-  width:100%;
-}
+#adminText{width:100%}
 
 .toast{
   position:fixed;
@@ -872,12 +706,10 @@ body.admin-on .admin{display:block}
   transition:.22s;
   z-index:100;
 }
-
 .toast.show{
   opacity:1;
   transform:translateX(-50%) translateY(0);
 }
-
 .empty{
   padding:30px;
   text-align:center;
@@ -887,7 +719,6 @@ body.admin-on .admin{display:block}
   color:#8a5d70;
   font-weight:900;
 }
-
 .footer{
   max-width:1280px;
   margin:0 auto;
@@ -904,18 +735,17 @@ body.admin-on .admin{display:block}
 @media(max-width:1180px){
   .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .showcase{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero-grid{grid-template-columns:360px 1fr}
 }
-
 @media(max-width:900px){
   .hero-grid{
     grid-template-columns:1fr;
     text-align:center;
   }
-  .hero p{margin-left:auto;margin-right:auto}
+  .hero-copy{text-align:center}
+  .hero-copy p{margin-left:auto;margin-right:auto}
   .hero-chips{justify-content:center}
-  .main{
-    display:block;
-  }
+  .main{display:block}
   .filters{
     position:relative;
     top:auto;
@@ -926,17 +756,13 @@ body.admin-on .admin{display:block}
   .search-zone{top:78px}
   .content-head{margin-top:12px}
 }
-
 @media(max-width:600px){
   .appbar{padding:8px 10px}
-  .brand-mark{width:48px;height:48px;border-radius:17px}
-  .brand-word{font-size:21px}
-  .brand-sub{font-size:9px;letter-spacing:.16em}
+  .brand-logo-small{width:145px;height:54px}
   .hero{margin-top:12px;padding:0 10px}
   .hero-card{border-radius:30px;padding:24px 14px}
-  .logo-hero{width:170px;height:170px;border-radius:36px}
-  .hero h1{font-size:clamp(44px,15vw,72px)}
-  .hero p{text-align:center}
+  .hero-logo-real{max-width:300px;border-radius:28px}
+  .hero-copy p{text-align:center;font-size:15px}
   .search-zone{padding:0 10px;top:66px}
   .main{padding:0 10px 100px}
   .filters{border-radius:24px}
@@ -947,9 +773,7 @@ body.admin-on .admin{display:block}
   .price{font-size:17px}
   .meta span{font-size:11px;padding:5px 7px}
   .add{padding:12px}
-  .content-head h2{font-size:30px}
 }
-
 @media(max-width:390px){
   .grid{grid-template-columns:1fr}
   .showcase{grid-template-columns:1fr}
@@ -963,11 +787,7 @@ body.admin-on .admin{display:block}
 <header class="appbar">
   <div class="appbar-inner">
     <div class="brand-mini" id="secretAdmin" title="VELORA">
-      <div class="brand-mark" id="brandLogo"></div>
-      <div>
-        <div class="brand-word">VELORA</div>
-        <div class="brand-sub">Boutique de Perfumes</div>
-      </div>
+      <img class="brand-logo-small" src="logo-velora.jpeg" alt="VELORA Boutique de Perfumes">
     </div>
 
     <div class="quick-actions">
@@ -981,14 +801,13 @@ body.admin-on .admin{display:block}
 <section class="hero">
   <div class="hero-card">
     <div class="hero-grid">
-      <div class="logo-hero" id="heroLogo" aria-hidden="true"></div>
-      <div>
-        <h1>VELORA</h1>
+      <img class="hero-logo-real" src="logo-velora.jpeg" alt="VELORA Boutique de Perfumes">
+      <div class="hero-copy">
         <p>Una boutique de perfumes femenina, brillante y elegante. Explora fragancias por marca, género y estilo; agrega al carrito y envía tu pedido directo por WhatsApp.</p>
         <div class="hero-chips">
-          <span class="chip">✨ Catálogo premium</span>
+          <span class="chip">✨ Fragancias premium</span>
           <span class="chip">🌸 Mujer · Hombre · Unisex</span>
-          <span class="chip">💎 Fragancias especiales</span>
+          <span class="chip">💎 Perfumes especiales</span>
           <span class="chip">📲 Pedido por WhatsApp</span>
         </div>
       </div>
@@ -998,7 +817,7 @@ body.admin-on .admin{display:block}
 
 <section class="search-zone">
   <div class="search-card">
-    <input id="search" type="search" placeholder="Buscar perfume, marca o estilo..." autocomplete="off" />
+    <input id="search" type="search" placeholder="Buscar perfume, marca o estilo..." autocomplete="off">
   </div>
 </section>
 
@@ -1050,10 +869,7 @@ body.admin-on .admin{display:block}
 
   <main>
     <div class="content-head">
-      <div>
-        <h2>Catálogo premium</h2>
-        <div class="small" id="resultInfo">Cargando fragancias...</div>
-      </div>
+      <div class="small" id="resultInfo">Cargando fragancias...</div>
     </div>
 
     <div class="tabs" id="tabs">
@@ -1116,34 +932,7 @@ const WHATSAPP = "18294755065";
 const BASE = "https://nuevalux.com";
 const DEFAULT_NOTE = "Consultar vía WhatsApp";
 const ADMIN_SECRET = "Velora 2026";
-
-const LOGO_SVG = encodeURIComponent(`
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
-  <defs>
-    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-      <stop stop-color="#ffe4f2"/>
-      <stop offset=".38" stop-color="#ff88c6"/>
-      <stop offset=".72" stop-color="#cba2ff"/>
-      <stop offset="1" stop-color="#ffe6a8"/>
-    </linearGradient>
-    <linearGradient id="txt" x1="0" x2="0" y1="0" y2="1">
-      <stop stop-color="#fff8fd"/>
-      <stop offset=".32" stop-color="#ffb9dc"/>
-      <stop offset=".67" stop-color="#ff4fa7"/>
-      <stop offset="1" stop-color="#b83885"/>
-    </linearGradient>
-  </defs>
-  <rect width="600" height="600" rx="135" fill="url(#bg)"/>
-  <circle cx="170" cy="128" r="34" fill="#fff" opacity=".75"/>
-  <circle cx="440" cy="150" r="18" fill="#fff" opacity=".42"/>
-  <path d="M300 82 C352 142 430 146 430 244 C430 324 363 386 300 442 C237 386 170 324 170 244 C170 146 248 142 300 82Z" fill="rgba(255,255,255,.28)" stroke="rgba(255,255,255,.72)" stroke-width="8"/>
-  <text x="300" y="318" text-anchor="middle" font-family="Georgia, Cambria, serif" font-size="176" font-weight="900" fill="white" stroke="#cc4d99" stroke-width="3">V</text>
-  <text x="300" y="472" text-anchor="middle" font-family="Georgia, Cambria, serif" font-size="62" font-weight="900" letter-spacing="8" fill="url(#txt)" stroke="rgba(255,255,255,.75)" stroke-width="2">VELORA</text>
-  <text x="300" y="516" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="6" fill="#7d3156">BOUTIQUE DE PERFUMES</text>
-</svg>
-`);
-
-const LOGO = "data:image/svg+xml;charset=utf-8," + LOGO_SVG;
+const LOGO = "logo-velora.jpeg";
 
 const PRICING = {
   logistica:250,
@@ -1154,17 +943,9 @@ const PRICING = {
   g4:1300
 };
 
-const BEST_WOMEN = [
-  "yara","yara candy","good girl","delina","born in roma","libre","black opium","la belle","daisy","sweet tooth","burberry goddess","gucci bloom","scandal","bright crystal","rose goldea"
-];
-
-const BEST_MEN = [
-  "asad","hawas","club de nuit intense","9 pm","le beau","sauvage","eros","y le parfum","invictus","one million","ultra male","scandal for men","prada l'homme","legend spirit"
-];
-
-const BEST_UNISEX = [
-  "khamrah","baccarat","amber oud","erba pura","instant crush","oud for greatness","naxos","tribeca","greenwich","oud","arabians tonka","liquid brun","vulcan"
-];
+const BEST_WOMEN = ["yara","yara candy","good girl","delina","born in roma","libre","black opium","la belle","daisy","sweet tooth","burberry goddess","gucci bloom","scandal","bright crystal","rose goldea"];
+const BEST_MEN = ["asad","hawas","club de nuit intense","9 pm","le beau","sauvage","eros","y le parfum","invictus","one million","ultra male","scandal for men","prada l'homme","legend spirit"];
+const BEST_UNISEX = ["khamrah","baccarat","amber oud","erba pura","instant crush","oud for greatness","naxos","tribeca","greenwich","oud","arabians tonka","liquid brun","vulcan"];
 
 let allProducts = [];
 let filtered = [];
@@ -1278,9 +1059,6 @@ function parseCatalog(text){
 }
 
 async function loadCatalog(){
-  $("brandLogo").innerHTML = `<img class="logo-svg" src="${LOGO}" alt="VELORA">`;
-  $("heroLogo").innerHTML = `<img class="logo-svg" src="${LOGO}" alt="VELORA">`;
-
   let saved = localStorage.getItem("veloraCatalog");
   favorites = JSON.parse(localStorage.getItem("veloraFavorites") || "[]");
 
@@ -1382,6 +1160,11 @@ function isBestSeller(p){
   return includesAny(p,[...BEST_WOMEN,...BEST_MEN,...BEST_UNISEX]);
 }
 
+function isRecommended(p){
+  const premiumBrands = ["Lattafa","Armaf","Afnan","Rasasi","Carolina Herrera","Dior","Versace","YSL","Jean Paul Gaultier","Bond No. 9","XERJOFF","Parfums de Marly","Maison Alhambra","MANCERA","Maison Francis Kurkdjian","INITIO"];
+  return premiumBrands.includes(p.brand) || isBestSeller(p) || p.isNew;
+}
+
 function applyFilters(){
   let q = $("search").value.trim().toLowerCase();
   let brand = $("brandFilter").value;
@@ -1418,11 +1201,6 @@ function applyFilters(){
   if(s === "name") filtered.sort((a,b)=>a.name.localeCompare(b.name,"es"));
 
   render();
-}
-
-function isRecommended(p){
-  const premiumBrands = ["Lattafa","Armaf","Afnan","Rasasi","Carolina Herrera","Dior","Versace","YSL","Jean Paul Gaultier","Bond No. 9","XERJOFF","Parfums de Marly","Maison Alhambra","MANCERA","Maison Francis Kurkdjian","INITIO"];
-  return premiumBrands.includes(p.brand) || isBestSeller(p) || p.isNew;
 }
 
 function render(){
@@ -1579,19 +1357,24 @@ function sendWhatsApp(){
   }
 
   let lines = [];
-  lines.push("Hola VELORA 🌸");
+  lines.push("🌸 *Hola VELORA Boutique de Perfumes* 🌸");
   lines.push("");
-  lines.push("Quiero consultar este pedido:");
+  lines.push("Me interesa consultar este pedido:");
   lines.push("");
 
-  cart.forEach(i=>{
-    lines.push(`• ${i.brand} - ${i.name} (${i.size}) x${i.qty} - ${i.note || DEFAULT_NOTE}`);
+  cart.forEach((i,index)=>{
+    lines.push(`✨ *${index + 1}. ${i.brand} — ${i.name}*`);
+    lines.push(`   • Tamaño: ${i.size || "N/D"}`);
+    lines.push(`   • Cantidad: ${i.qty}`);
+    lines.push(`   • Precio: ${i.note || DEFAULT_NOTE}`);
+    lines.push("");
   });
 
+  lines.push("💗 *Total estimado:* " + $("total").textContent);
   lines.push("");
-  lines.push("Total estimado: " + $("total").textContent);
+  lines.push("¿Me confirmas disponibilidad, precio final y tiempo de entrega?");
   lines.push("");
-  lines.push("¿Me confirmas precio y disponibilidad?");
+  lines.push("Gracias ✨");
 
   let url = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(lines.join("\n"));
   window.open(url,"_blank");
